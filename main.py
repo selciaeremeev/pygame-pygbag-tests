@@ -9,14 +9,18 @@ async def main():
     pygame.init()
     screen = pygame.display.set_mode((640, 480))
     pygame.display.set_caption("pygame-pygbag-tests")
+
     clock = pygame.time.Clock()
+    font = pygame.font.Font(None, 30)
+    logo = pygame.image.load("resources/logo.png")
 
     x, y = 100, 100
 
     while True:
         screen.fill((255, 255, 255))
-        screen.blit(pygame.font.Font(None, 30).render(f"FPS: {int(clock.get_fps())}", True, (0, 0, 0)), [0, 0])
-        screen.blit(pygame.font.Font(None, 30).render("TEST", True, (0, 0, 0)), [x, y])
+        screen.blit(logo, (0, 0))
+        screen.blit(font.render(f"FPS: {int(clock.get_fps())}", True, (0, 0, 0)), [0, 0])
+        screen.blit(font.render("TEST", True, (0, 0, 0)), [x, y])
         pygame.display.update()
 
         pressed = pygame.key.get_pressed()
